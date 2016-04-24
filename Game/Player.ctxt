@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=stage
+comment0.target=Player(Stage)
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=int\ getVx()
+comment3.params=newVx
+comment3.target=void\ setVx(int)
+comment4.params=
+comment4.target=int\ getVy()
+comment5.params=newVy
+comment5.target=void\ setVy(int)
+comment6.params=
+comment6.target=void\ updateSpeed()
+comment7.params=e
+comment7.target=void\ keyReleased(java.awt.event.KeyEvent)
+comment8.params=e
+comment8.target=void\ keyPressed(java.awt.event.KeyEvent)
+comment9.params=
+comment9.target=int\ sensorDirectionUpdate()
+numComments=10
