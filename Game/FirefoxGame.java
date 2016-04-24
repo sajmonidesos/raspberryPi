@@ -6,6 +6,13 @@
  * @version (a version number or a date)
  */
 
+import com.pi4j.io.serial.Serial;
+import com.pi4j.io.serial.SerialDataEvent;
+import com.pi4j.io.serial.SerialDataListener;
+import com.pi4j.io.serial.SerialFactory;
+import com.pi4j.io.serial.SerialPortException;
+
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.TexturePaint;
@@ -40,6 +47,8 @@ public class FirefoxGame extends Canvas implements Stage,KeyListener{
    private BufferedImage spaceBackground, backgroundTile;
    private int backgroundY;
    
+   SerialReader serialReader;
+   
    public FirefoxGame()
     {
      spriteCache = new SpriteCache();
@@ -54,6 +63,7 @@ public class FirefoxGame extends Canvas implements Stage,KeyListener{
      frame.setVisible(true);
      frame.addWindowListener(new WindowAdapter() {
          public void windowClosing (WindowEvent e){
+             serialReader.stop();
              System.exit(0);
          }   
         });
@@ -88,6 +98,23 @@ public class FirefoxGame extends Canvas implements Stage,KeyListener{
        g.setPaint(new TexturePaint(backgroundTile, new Rectangle(0,0,spaceBackground.getWidth(),spaceBackground.getHeight())));
        g.fillRect(0,0,spaceBackground.getWidth(),spaceBackground.getHeight());
        backgroundY = backgroundTile.getHeight();
+      
+       try{
+       
+           serialReader = new SerialReader();
+           serialReader.start();
+        }catch(InterruptedException e){
+        
+            System.out.println("Serial Excpetion"+e.getMessage());
+        }
+         serialReader.serial.addListener(new SerialDataListener() {
+            @Override
+            public void dataReceived(SerialDataEvent event) {
+                // print out the data received to the console
+                System.out.print(event.getData());
+            }            
+        });
+       
        
     }
    public void paintWorld(){
@@ -107,7 +134,7 @@ public class FirefoxGame extends Canvas implements Stage,KeyListener{
        player.paint(g);
        g.setColor(Color.white);
        //sensor.getString();
-        g.drawString("Czujnik: "+player.sensorDirectionUpdate(),50,height-100);
+       // g.drawString("Czujnik: "+player.sensorDirectionUpdate(),50,height-100);
        /*try{
            g.drawString("Czujnik: "+sensor.getData(),50,height-100);
         }

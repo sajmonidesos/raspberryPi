@@ -105,7 +105,7 @@ public class I2cAdapter
     {   
              new Thread ( new Runnable(){
           public void run() {
-                Thread.sleep(200);
+               // Thread.sleep(200);
                 int result = -1;
                            
                 try{

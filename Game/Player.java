@@ -6,13 +6,13 @@ public class Player extends Actor{
     protected int vX;
     protected int vY;
     private boolean up,down,left,right;
-    private I2cAdapter sensor;
+   // private I2cAdapter sensor;
     
     public Player(Stage stage)
     {   
         super(stage);
         setSpriteName("X-wing");
-        sensor = new I2cAdapter("POTENT");
+    //    sensor = new I2cAdapter("POTENT");
     }
 
     public void act(){
@@ -76,14 +76,14 @@ public class Player extends Actor{
         
         int result=128;
         
-         try{
-          result = sensor.getData();
+     //    try{
+         //result = sensor.getData();
           
-        }
-       catch (InterruptedException e){
-           System.out.println("błąd czunika");
+      //  }
+      // catch (InterruptedException e){
+       //    System.out.println("błąd czunika");
            
-        }
+       // }
         if (result >150)     left = true;
         if(result < 150)    left  = false;
         if(result > 100)    right = false;
