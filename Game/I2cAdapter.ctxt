@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=input
+comment0.target=I2cAdapter(java.lang.String)
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ I2cAdapter\n
+comment1.params=
+comment1.target=int\ getData()
+comment2.params=
+comment2.target=void\ getString()
+comment3.params=
+comment3.target=void\ run()
+numComments=4

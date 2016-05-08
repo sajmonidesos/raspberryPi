@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ResourceCache()
+comment1.params=name
+comment1.target=java.lang.Object\ loadResource(java.lang.String)
+comment2.params=name
+comment2.target=java.lang.Object\ getResource(java.lang.String)
+comment3.params=url
+comment3.target=java.lang.Object\ loadResource(java.net.URL)
+numComments=4

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=url
+comment0.target=java.lang.Object\ loadResource(java.net.URL)
+comment1.params=width\ height\ transparency
+comment1.target=java.awt.image.BufferedImage\ createCompatible(int,\ int,\ int)
+comment2.params=name
+comment2.target=java.awt.image.BufferedImage\ getSprite(java.lang.String)
+comment3.params=img\ infoflags\ x\ y\ w\ h
+comment3.target=boolean\ imageUpdate(java.awt.Image,\ int,\ int,\ int,\ int,\ int)
+numComments=4

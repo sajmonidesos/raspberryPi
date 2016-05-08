@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=stage
+comment0.target=Actor(Stage)
+comment1.params=g
+comment1.target=void\ paint(java.awt.Graphics2D)
+comment2.params=
+comment2.target=int\ getPosX()
+comment3.params=
+comment3.target=int\ getPosY()
+comment4.params=newPosX
+comment4.target=void\ setPosX(int)
+comment5.params=newPosY
+comment5.target=void\ setPosY(int)
+comment6.params=
+comment6.target=java.lang.String\ getSpriteName()
+comment7.params=spriteName
+comment7.target=void\ setSpriteName(java.lang.String)
+comment8.params=
+comment8.target=void\ act()
+numComments=9
