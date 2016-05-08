@@ -102,19 +102,29 @@ public class FirefoxGame extends Canvas implements Stage,KeyListener{
        try{
        
            serialReader = new SerialReader();
-           serialReader.start();
         }catch(InterruptedException e){
         
-            System.out.println("Serial Excpetion"+e.getMessage());
+            System.out.println("Serial Exception"+e.getMessage());
         }
+        
          serialReader.serial.addListener(new SerialDataListener() {
             @Override
             public void dataReceived(SerialDataEvent event) {
                 // print out the data received to the console
-                System.out.print(event.getData());
+                //System.out.print(event.getData());
+                String line;
+                line = serialReader.buildLine(event.getData());
+                if (!line.equals("")){
+                    
+                    player.serialDirectionUpdate(line);
+                
+                }
+                
+                
+                
             }            
         });
-       
+    
        
     }
    public void paintWorld(){

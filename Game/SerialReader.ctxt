@@ -6,4 +6,6 @@ comment1.params=
 comment1.target=void\ start()
 comment2.params=
 comment2.target=void\ stop()
-numComments=3
+comment3.params=event2
+comment3.target=java.lang.String\ buildLine(java.lang.String)
+numComments=4

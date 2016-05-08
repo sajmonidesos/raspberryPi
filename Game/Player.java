@@ -1,5 +1,10 @@
 import java.awt.event.KeyEvent;
 
+
+import com.pi4j.io.serial.SerialDataEvent;
+
+
+
 public class Player extends Actor{
    
     protected static final int PLAYER_SPEED = 4;
@@ -8,6 +13,7 @@ public class Player extends Actor{
     private boolean up,down,left,right;
    // private I2cAdapter sensor;
     
+   	 int skipSerial = 10;
     public Player(Stage stage)
     {   
         super(stage);
@@ -90,5 +96,32 @@ public class Player extends Actor{
         if (result <100)   right = true;
         updateSpeed();     
         return result;
+    }
+    
+    public void serialDirectionUpdate(String line){
+       
+        //System.out.println(line);
+         if (skipSerial >0){
+             skipSerial--;
+             return;
+         }
+     
+        String [] resultStrings = line.split(","); 
+         
+        
+        int result = Integer.parseInt(resultStrings[0]);
+        if (result >550){     left = true; System.out.println("left");}
+        if(result < 550)   left  = false;
+        if(result > 450)    right = false;
+        if(result < 450){   right = true; System.out.println("right");}
+        
+       // int result2 = Integer.parseInt(line.substring(4,7));
+        //if (result2 >550)     down = true;
+       // if(result2 < 550)    down  = false;
+        //if(result2 > 450)    up = false;
+        //if(result2 < 450)   up = true;
+        updateSpeed();
+        
+    
     }
 }
